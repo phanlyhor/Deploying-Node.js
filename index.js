@@ -1,16 +1,14 @@
-const express = require("express");
-const app = express();
+const express = require ("express")
+const app = express()
 
-const PORT = process.env.PORT || 8081; // Use Render's assigned port
+app.get('/' , (request , response) => {
+    response.send('wellcome express in node js.')
+})
 
-app.get("/", (req, res) => {
-    res.send("Welcome to Express on Render.");
-});
+app.get('/api' , (request , response ) => {
+    response.send('you have request http://localhost::8081/api')
+})
 
-app.get("/api", (req, res) => {
-    res.send("You have requested http://localhost:" + PORT + "/api");
-});
-
-app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
-});
+app.listen(8081,()=>{
+    console.log('server run http://localhost:8081')
+})
